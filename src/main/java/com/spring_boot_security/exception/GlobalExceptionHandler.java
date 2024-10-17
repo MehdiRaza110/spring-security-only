@@ -1,6 +1,6 @@
-package com.security.exception;
+package com.spring_boot_security.exception;
 
-import com.security.payload.ErrorDetails;
+import com.spring_boot_security.payload.ErrorDetails;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

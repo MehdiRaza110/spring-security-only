@@ -1,8 +1,8 @@
-package com.security.config;
+package com.spring_boot_security.config;
 
-import com.security.entity.Role;
-import com.security.entity.User;
-import com.security.repository.UserRepository;
+import com.spring_boot_security.entity.Role;
+import com.spring_boot_security.entity.User;
+import com.spring_boot_security.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

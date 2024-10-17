@@ -1,13 +1,13 @@
-package com.security.controller;
+package com.spring_boot_security.controller;
 
-import com.security.entity.Role;
-import com.security.entity.User;
-import com.security.payload.JWTAuthResponse;
-import com.security.payload.LoginDto;
-import com.security.payload.SignUpDto;
-import com.security.repository.RoleRepository;
-import com.security.repository.UserRepository;
-import com.security.security.JwtTokenProvider;
+import com.spring_boot_security.entity.Role;
+import com.spring_boot_security.entity.User;
+import com.spring_boot_security.payload.JWTAuthResponse;
+import com.spring_boot_security.payload.LoginDto;
+import com.spring_boot_security.payload.SignUpDto;
+import com.spring_boot_security.repository.RoleRepository;
+import com.spring_boot_security.repository.UserRepository;
+import com.spring_boot_security.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -70,7 +70,12 @@ public class AuthController {
         Role roles = roleRepository.findByName("ROLE_ADMIN").get();
         user.setRoles(Collections.singleton(roles));
         userRepository.save(user);
-        return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+
+        Authentication authentication =
+                new UsernamePasswordAuthenticationToken(signUpDto.getUsername(), signUpDto.getPassword());
+        String jwtToken = tokenProvider.generateToken(authentication);
+
+        return new ResponseEntity<>(jwtToken, HttpStatus.OK);
     }
 
     @GetMapping("/jwt")

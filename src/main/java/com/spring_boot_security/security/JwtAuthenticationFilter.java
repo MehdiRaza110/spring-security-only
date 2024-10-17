@@ -1,6 +1,5 @@
-package com.security.security;
-
-import com.security.config.CustomUserDetailsService;
+package com.spring_boot_security.security;
+import com.spring_boot_security.config.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,4 +1,4 @@
-package com.security.payload;
+package com.spring_boot_security.payload;
 
 public class JWTAuthResponse {
     private String accessToken;
